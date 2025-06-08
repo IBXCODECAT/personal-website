@@ -1,26 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Blob from "./Blob";
 
-function App() {
+// Main App Component - This is where we render the Blob and the page content
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
+    <div className="relative bg-gray-900 min-h-screen text-white flex items-center justify-center font-sans overflow-hidden">
+      {/* The Blob component is rendered here */}
+      <Blob />
+
+      {/* Example content for the page */}
+      <div className="text-center z-10 p-4">
+        <h1 className="text-5xl md:text-7xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500">
+          Blob Follows Cursor
+        </h1>
+        <p className="text-gray-300 max-w-2xl mx-auto">
+          Move your mouse around the screen to see the blob trail effect. The
+          blob is a separate component and doesn't interfere with the content
+          underneath it.
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      </div>
     </div>
   );
 }
-
-export default App;
