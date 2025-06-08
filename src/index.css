@@ -15,3 +15,22 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: rotate 15s linear infinite;
+}
+
+.brand-cyan { color: #00FFFF; }
+.brand-blue { color: #0D7EFF; }
+.brand-calm-blue { color: #0CADE8; }
+.brand-calm-green { color: #0CE8AA; }
+.brand-green { color: #0DFF76; }

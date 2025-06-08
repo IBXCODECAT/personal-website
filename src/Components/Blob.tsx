@@ -8,9 +8,7 @@ const Blob = () => {
   // useEffect hook to add and clean up the mousemove event listener
   React.useEffect(() => {
     // This function updates the position state based on the mouse coordinates
-    // We explicitly type the 'event' parameter as a native MouseEvent
     const handleMouseMove = (event: MouseEvent) => {
-      // Correctly destructure clientX and clientY from the event object
       const { clientX, clientY } = event;
       setPosition({
         x: clientX,
@@ -22,31 +20,33 @@ const Blob = () => {
     window.addEventListener("mousemove", handleMouseMove);
 
     // Clean up the event listener when the component unmounts
-    // This is important to prevent memory leaks
     return () => {
       window.removeEventListener("mousemove", handleMouseMove);
     };
-  }, []); // Empty dependency array means this effect runs only once on mount
+  }, []); // Empty dependency array means ``this effect runs only once on mount
 
   return (
     <div
       style={{
-        // We use transform to move the blob. This is more performant than changing top/left.
-        // The blob is centered on the cursor by subtracting half its width/height (144px / 2 = 72px).
-        transform: `translate(${position.x - 72}px, ${position.y - 72}px)`,
+        // We use transform to move the blob's container.
+        transform: `translate(${position.x - 96}px, ${position.y - 96}px)`,
         // The transition property creates the smooth trailing effect
-        transition: "transform 0.2s ease-out",
+        transition: "transform 0.1s ease-out",
       }}
-      className="
-        fixed top-0 left-0 
-        w-36 h-36 
-        bg-violet-500 
-        rounded-full 
-        opacity-50 
-        blur-2xl
-        pointer-events-none  // This allows you to click on elements 'behind' the blob
-      "
-    />
+      className="fixed top-0 left-0 pointer-events-none"
+    >
+      <div
+        className="
+          -translate-x-1/2 -translate-y-1/2 // Center the blob on the cursor
+          w-48 h-48
+          bg-gradient-to-tr from-emerald-400 to-sky-600
+          rounded-full
+          opacity-75
+          blur-2xl
+          animate-spin-slow // Apply the custom spinning animation
+        "
+      />
+    </div>
   );
 };
 
