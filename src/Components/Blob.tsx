@@ -17,56 +17,96 @@ const interpolateColor = (color1: number[], color2: number[], factor: number): s
   return `rgb(${result[0]}, ${result[1]}, ${result[2]})`;
 };
 
+// Define the color stops for our gradient sections. Each stop has a position (0 to 1) and 'from'/'to' colors.
+const colorStops = [
+    { stop: 0.0, from: [52, 211, 153], to: [2, 132, 199] },     // Emerald Sky Start
+    { stop: 0.4, from: [52, 211, 153], to: [2, 132, 199] },    // Emerald Sky End
+
+    { stop: 0.6, from: [217, 70, 239], to: [2, 132, 199] },    // Magenta Sky Start
+    { stop: 1.0, from: [217, 70, 239], to: [2, 132, 199] },     // Magenta Sky End
+    
+    //{ stop: 0.55, from: [251, 189, 35], to: [220, 38, 38] },    // Amber Sky Start
+    //{ stop: 1.0, from: [251, 189, 35], to: [220, 38, 38] },    // Amber Sky End
+];
+
+/**
+ * Calculates the interpolated gradient based on the overall progress and defined color stops.
+ */
+const getInterpolatedGradient = (progress: number) => {
+    // Find the two stops the current progress is between.
+    let startStop = colorStops[0];
+    let endStop = colorStops[1];
+    for (let i = 0; i < colorStops.length - 1; i++) {
+        if (progress >= colorStops[i].stop && progress <= colorStops[i + 1].stop) {
+            startStop = colorStops[i];
+            endStop = colorStops[i + 1];
+            break;
+        }
+    }
+
+    // Calculate the progress within the current segment.
+    const segmentDuration = endStop.stop - startStop.stop;
+    const localProgress = segmentDuration > 0 ? (progress - startStop.stop) / segmentDuration : 0;
+
+    // Interpolate the 'from' and 'to' colors of the gradient separately.
+    const fromColor = interpolateColor(startStop.from, endStop.from, localProgress);
+    const toColor = interpolateColor(startStop.to, endStop.to, localProgress);
+
+    return { fromColor, toColor };
+};
+
 // The Blob Component
 const Blob = () => {
-  // State to hold the blob's position
-  const [position, setPosition] = useState({ x: 0, y: 0 });
+  // State for the blob's on-screen position (clientX/Y) and document position (pageY)
+  const [position, setPosition] = useState({ clientX: 0, clientY: 0, pageY: 0 });
+  const [documentHeight, setDocumentHeight] = useState(0);
 
-  // State for the color transition factor, based on mouse Y position (0 to 1)
-  const [colorFactor, setColorFactor] = useState(0);
-
-  // Define the start (top of page) and end (bottom of page) colors for the gradient.
-  // Colors are represented as [R, G, B] arrays for easy interpolation.
-  const emeraldSky = {
-      from: [52, 211, 153],   // Tailwind's emerald-400
-      to: [2, 132, 199],     // Tailwind's sky-600
-  };
-  const orangeSky = {
-      from: [251, 189, 35],  // Tailwind's amber-400
-      to: [220, 38, 38],     // Tailwind's red-600
-  };
-
-  // useEffect hook to add and clean up the mousemove event listener
   useEffect(() => {
-    // Updates the mouse position and the color factor.
+    // Set the initial document height
+    setDocumentHeight(document.documentElement.scrollHeight);
+    
     const handleMouseMove = (event: MouseEvent) => {
-      const { clientX, clientY } = event;
-      setPosition({ x: clientX, y: clientY });
-
-      // Calculate the color factor based on the mouse's vertical position
-      // as a percentage of the viewport height.
-      const factor = clientY / window.innerHeight;
-      setColorFactor(factor);
+      setPosition({
+        clientX: event.clientX,
+        clientY: event.clientY,
+        pageY: event.pageY
+      });
     };
 
-    // Add the event listener when the component mounts
-    window.addEventListener("mousemove", handleMouseMove);
+    const handleScroll = () => {
+      // On scroll, we recalculate the pageY based on the last known screen Y + current scroll position.
+      // This keeps the color consistent with the content under the cursor.
+      const newPageY = position.clientY + window.scrollY;
+      setPosition(prev => ({ ...prev, pageY: newPageY }));
+    };
 
-    // Clean up the event listener when the component unmounts
+    // We also listen for resize to update the total document height
+    const handleResize = () => {
+      setDocumentHeight(document.documentElement.scrollHeight);
+    }
+
+    window.addEventListener("mousemove", handleMouseMove);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("resize", handleResize);
+
     return () => {
       window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleResize);
     };
-  }, []); // Empty dependency array means ``this effect runs only once on mount
+  }, [position.clientY]); // Re-add listeners if clientY changes (though this dependency is minor)
 
-  // Interpolate the 'from' and 'to' colors of the gradient based on the current color factor.
-  const fromColor = interpolateColor(emeraldSky.from, orangeSky.from, colorFactor);
-  const toColor = interpolateColor(emeraldSky.to, orangeSky.to, colorFactor);
+  // Calculate the overall progress of the cursor down the page.
+  const progress = documentHeight > 0 ? position.pageY / documentHeight : 0;
+
+  // Get the interpolated colors for the current progress.
+  const { fromColor, toColor } = getInterpolatedGradient(progress);
 
   return (
     <div
       style={{
         // We use transform to move the blob's container.
-        transform: `translate(${position.x - 96}px, ${position.y - 96}px)`,
+        transform: `translate(${position.clientX - 96}px, ${position.clientY - 96}px)`,
         // The transition property creates the smooth trailing effect
         transition: "transform 0.1s ease-out",
 

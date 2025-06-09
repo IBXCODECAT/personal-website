@@ -2,14 +2,15 @@ import React from "react";
 import Blob from "./Components/Blob";
 import Card from "./Components/Card";
 import ScrollPrompt from "./Components/ScrollPrompt";
+import Section from "./Components/Section";
 
 // Main App Component - This is where we render the Blob and the page content
 export default function App() {
   return (
     <div className="bg-gray-900">
     <Blob />
-    <div className="relative  min-h-screen text-white flex items-center justify-center font-sans overflow-hidden">
-      
+
+    <Section>
       <img src="kittyfx.png" alt="site logo" className="z-10" width={450} height={450} draggable="false"/>
       {/* The Blob component is rendered here */}
       
@@ -26,9 +27,12 @@ export default function App() {
         </p>
         
       </div>
-    </div>
+    </Section>
     <ScrollPrompt/>
-    <div id="content">
+
+    <div id="content"/>
+
+    <Section>
       <Card/>
       <Card/><Card/>
       <Card/><Card/>
@@ -36,15 +40,13 @@ export default function App() {
       <Card/><Card/>
       <Card/><Card/>
       <Card/><Card/>
-      <Card/><Card/>
-      <Card/><Card/>
-      <Card/><Card/>
-      <Card/><Card/>
-      <Card/><Card/>
-      <Card/><Card/>
-      <Card/><Card/>
-      <Card/>
-    </div>
+
+    </Section>
+
+    <Section>
+      <h1>Final Section Test</h1>
+    </Section>
+    
   </div>
   );
 }
