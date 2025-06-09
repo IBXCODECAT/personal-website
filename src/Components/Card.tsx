@@ -1,7 +1,10 @@
 const Card = () => {
     return (
-        <div className="bg-slate-300 opacity-15 shadow-md rounded-lg z-10 p-6">
-            <h1>Hello</h1>
+        <div className="rounded-lg z-10 p-px bg-emerald-400">
+            <div className=" bg-black">
+                <h1 className="text-white">Hello There!</h1>
+                <h2 className="text-white">This is the content.</h2>
+            </div>
         </div>
         
     );

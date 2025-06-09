@@ -7,11 +7,12 @@ import ScrollPrompt from "./Components/ScrollPrompt";
 export default function App() {
   return (
     <div className="bg-gray-900">
+    <Blob />
     <div className="relative  min-h-screen text-white flex items-center justify-center font-sans overflow-hidden">
       
       <img src="kittyfx.png" alt="site logo" className="z-10" width={450} height={450} draggable="false"/>
       {/* The Blob component is rendered here */}
-      <Blob />
+      
 
       {/* Example content for the page */}
       <div className="text-center z-10 p-4">
@@ -26,9 +27,24 @@ export default function App() {
         
       </div>
     </div>
-      <ScrollPrompt/>
+    <ScrollPrompt/>
+    <div id="content">
       <Card/>
+      <Card/><Card/>
+      <Card/><Card/>
+      <Card/><Card/>
+      <Card/><Card/>
+      <Card/><Card/>
+      <Card/><Card/>
+      <Card/><Card/>
+      <Card/><Card/>
+      <Card/><Card/>
+      <Card/><Card/>
+      <Card/><Card/>
+      <Card/><Card/>
+      <Card/><Card/>
       <Card/>
     </div>
+  </div>
   );
 }
