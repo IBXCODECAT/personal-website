@@ -61,6 +61,7 @@ const Blob = () => {
 
     // Add the event listeners when the component mounts
     window.addEventListener("mousemove", handleMouseMove);
+    window.addEventListener("scroll", handleScroll);
 
     // Set the initial scroll position on load, in case the page loads pre-scrolled
     handleScroll();
@@ -68,6 +69,7 @@ const Blob = () => {
     // Clean up the event listeners when the component unmounts
     return () => {
       window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []); // Empty dependency array means ``this effect runs only once on mount
 
