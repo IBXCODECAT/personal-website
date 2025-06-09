@@ -22,8 +22,8 @@ const Blob = () => {
   // State to hold the blob's position
   const [position, setPosition] = useState({ x: 0, y: 0 });
 
-  // State for the DOM's scroll percentage, from 0 to 1
-  const [scrollPercentage, setScrollPercentage] = useState(0);
+  // State for the color transition factor, based on mouse Y position (0 to 1)
+  const [colorFactor, setColorFactor] = useState(0);
 
   // Define the start (top of page) and end (bottom of page) colors for the gradient.
   // Colors are represented as [R, G, B] arrays for easy interpolation.
@@ -38,45 +38,29 @@ const Blob = () => {
 
   // useEffect hook to add and clean up the mousemove event listener
   useEffect(() => {
-    // This function updates the position state based on the mouse coordinates
+    // Updates the mouse position and the color factor.
     const handleMouseMove = (event: MouseEvent) => {
       const { clientX, clientY } = event;
-      setPosition({
-        x: clientX,
-        y: clientY,
-      });
-      
+      setPosition({ x: clientX, y: clientY });
+
+      // Calculate the color factor based on the mouse's vertical position
+      // as a percentage of the viewport height.
+      const factor = clientY / window.innerHeight;
+      setColorFactor(factor);
     };
 
-    // Updates the scroll percentage state whenever the page is scrolled
-    const handleScroll = () => {
-      const scrollTop = window.scrollY;
-      const domHeight = document.documentElement.scrollHeight - window.innerHeight;
-
-      // Avoid division by zero if the page content is not tall enough to scroll
-      const scrollPercent = domHeight > 0 ? scrollTop / domHeight : 0;
-      setScrollPercentage(scrollPercent);
-
-    }
-
-    // Add the event listeners when the component mounts
+    // Add the event listener when the component mounts
     window.addEventListener("mousemove", handleMouseMove);
-    window.addEventListener("scroll", handleScroll);
 
-    // Set the initial scroll position on load, in case the page loads pre-scrolled
-    handleScroll();
-
-    // Clean up the event listeners when the component unmounts
+    // Clean up the event listener when the component unmounts
     return () => {
       window.removeEventListener("mousemove", handleMouseMove);
-      window.removeEventListener("scroll", handleScroll);
     };
   }, []); // Empty dependency array means ``this effect runs only once on mount
 
-  // Interpolate the 'from' and 'to' colors of the gradient based on the current scroll percentage.
-  const fromColor = interpolateColor(emeraldSky.from, orangeSky.from, scrollPercentage);
-  const toColor = interpolateColor(emeraldSky.to, orangeSky.to, scrollPercentage);
-
+  // Interpolate the 'from' and 'to' colors of the gradient based on the current color factor.
+  const fromColor = interpolateColor(emeraldSky.from, orangeSky.from, colorFactor);
+  const toColor = interpolateColor(emeraldSky.to, orangeSky.to, colorFactor);
 
   return (
     <div
