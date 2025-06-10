@@ -1,52 +1,41 @@
-import React from "react";
 import Blob from "./Components/Blob";
 import Card from "./Components/Card";
 import ScrollPrompt from "./Components/ScrollPrompt";
 import Section from "./Components/Section";
+import Header from "./Components/Header";
 
 // Main App Component - This is where we render the Blob and the page content
 export default function App() {
   return (
     <div className="bg-gray-900">
-    <Blob />
+      {/* Render the dynamic gradient Blob that follows the cursor */}
+      <Blob />
 
-    <Section>
-      <img src="kittyfx.png" alt="site logo" className="z-10" width={450} height={450} draggable="false"/>
-      {/* The Blob component is rendered here */}
-      
+      {/* Landing Section */}
+      <Section>
+        <img src="kittyfx.png" alt="site logo" className="z-10" width={450} height={450} draggable="false"/>
+        <Header startColor="from-emerald-500" endColor="to-sky-600" title="Nathan Schmitt" description="Hi there! I'm a full-stack software developer, passionate about bringing ideas to life through technology. This is my journey."/>
+      </Section>
 
-      {/* Example content for the page */}
-      <div className="text-center z-10 p-4">
-        <h1 className="text-5xl md:text-7xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 to-sky-600">
-          Nathan Schmitt
-        </h1>
-        <p className="text-gray-300 max-w-2xl mx-auto">
-          Move your mouse around the screen to see the blob trail effect. The
-          blob is a separate component and doesn't interfere with the content
-          underneath it.
-        </p>
+      {/* Prompt to scroll the page. */}
+      <ScrollPrompt/>
+      {/* This is where the scroll prompt will link us to (between last and next section) */}
+      <div id="content"/>
+
+      {/* Projects Section */}
+      <Section>
+        <div>
+          <Header startColor="from-amber-400" endColor="to-fuchsia-600" title="Engineering Adventures" description="Here, you'll find a collection of projects and experiences that mark my journey as a full-stack software developer. Each card below represents a unique challenge, a new skill learned, and a story."/>
         
-      </div>
-    </Section>
-    <ScrollPrompt/>
+          <Card/>
+          <Card/>
+          <Card/>
+        </div>
+      </Section>
 
-    <div id="content"/>
-
-    <Section>
-      <Card/>
-      <Card/><Card/>
-      <Card/><Card/>
-      <Card/><Card/>
-      <Card/><Card/>
-      <Card/><Card/>
-      <Card/><Card/>
-
-    </Section>
-
-    <Section>
-      <h1>Final Section Test</h1>
-    </Section>
-    
-  </div>
+      <Section>
+        <h1>Some other section</h1>
+      </Section>
+    </div>
   );
 }
