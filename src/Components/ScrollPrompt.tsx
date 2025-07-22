@@ -1,6 +1,6 @@
 const ScrollPrompt = () => {
     return (
-        <div className="-translate-y-16 flex flex-row justify-center items-center">
+        <div className="-translate-y-16 flex flex-row justify-center items-center h-0">
             <a href="#content">
                 <div className="animate-bounce">
                     <svg fill="#FFFFFF" width="32px" height="32px" viewBox="0 0 24 24" id="double-down-sign"

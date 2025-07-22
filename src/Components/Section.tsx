@@ -6,7 +6,7 @@ interface SectionProps {
 
 const Section: FC<SectionProps> = ({children}) => {
     return (
-        <section className="relative  min-h-screen text-white flex items-center justify-center font-sans overflow-hidden">
+        <section className="relative min-h-screen text-white flex items-center justify-center font-sans overflow-hidden">
             {children}
         </section>
     );
