@@ -12,8 +12,6 @@ const ScrollPrompt = () => {
                 </div>
             </a>
         </div>
-        
-        
     );
 }
 

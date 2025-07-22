@@ -118,7 +118,7 @@ const Starfield: FC<StarfieldProps> = ({ children }) => {
   }, []); // Empty dependency array means this effect runs only once on mount
 
   return (
-    <div className="relative w-full h-screen overflow-hidden bg-gray-900">
+    <div className="relative w-full h-screen overflow-hidden">
       {/* Canvas for the starfield background. Placed behind children (z-0). */}
       <canvas
         ref={canvasRef}
