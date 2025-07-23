@@ -41,6 +41,9 @@ const Starfield: FC<StarfieldProps> = ({ children }) => {
     const numStars = 100; // Increased number of stars for a better effect
     starsRef.current = Array.from({ length: numStars }, createStar);
 
+    // Variable to store the current opacity of the starfield
+    let currentStarfieldOpacity = 1;
+
     // Animation loop function
     const animate = () => {
       // Ensure canvas and context are available
@@ -83,10 +86,11 @@ const Starfield: FC<StarfieldProps> = ({ children }) => {
         if (size > 0.1 && opacity > 0.1) {
           ctx.beginPath();
           ctx.arc(screenX, screenY, size, 0, Math.PI * 2);
-          ctx.fillStyle = `rgba(255, 255, 255, ${Math.min(opacity, 1)})`;
-          // Add a glow effect
+          // Apply the `currentStarfieldOpacity` to each star's fill style
+          ctx.fillStyle = `rgba(255, 255, 255, ${Math.min(opacity, 1) * currentStarfieldOpacity})`;
+          // Add a glow effect, also affected by the current overall opacity
           ctx.shadowBlur = size * 2;
-          ctx.shadowColor = `rgba(255, 255, 255, ${Math.min(opacity * 0.8, 0.8)})`;
+          ctx.shadowColor = `rgba(255, 255, 255, ${Math.min(opacity * 0.8, 0.8) * currentStarfieldOpacity})`;
           ctx.fill();
         }
       });
@@ -94,6 +98,32 @@ const Starfield: FC<StarfieldProps> = ({ children }) => {
       // Request the next animation frame
       animationFrameId.current = requestAnimationFrame(animate);
     };
+
+    // --- Scroll Fade Effect ---
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      const windowHeight = window.innerHeight;
+
+      // Define the scroll range over which the fade should occur.
+      // For example, fade out completely by the time the user scrolls
+      // down 50% of the viewport height.
+      const fadeStart = 0; // Start fading immediately
+      const fadeEnd = windowHeight * 0.5; // Fade out completely after scrolling 50% of viewport height
+
+      if (scrollY <= fadeStart) {
+        currentStarfieldOpacity = 1; // Fully visible at the top
+      } else if (scrollY >= fadeEnd) {
+        currentStarfieldOpacity = 0; // Fully transparent after scrolling past fadeEnd
+      } else {
+        // Calculate opacity based on scroll position within the fade range
+        currentStarfieldOpacity = 1 - (scrollY - fadeStart) / (fadeEnd - fadeStart);
+      }
+      // You can also directly set the canvas style property here if you prefer
+      // canvas.style.opacity = currentStarfieldOpacity.toString();
+    };
+
+    // Add scroll event listener
+    window.addEventListener('scroll', handleScroll);
 
     // Start the animation loop
     animate();
@@ -104,6 +134,8 @@ const Starfield: FC<StarfieldProps> = ({ children }) => {
       canvas.height = window.innerHeight;
       // Re-initialize stars on resize to ensure they are distributed correctly
       starsRef.current = Array.from({ length: numStars }, createStar);
+      // Re-evaluate scroll position on resize to update opacity
+      handleScroll();
     };
 
     window.addEventListener('resize', handleResize);
@@ -111,6 +143,7 @@ const Starfield: FC<StarfieldProps> = ({ children }) => {
     // Cleanup function for the effect: remove event listener and cancel animation frame
     return () => {
       window.removeEventListener('resize', handleResize);
+      window.removeEventListener('scroll', handleScroll); // Clean up scroll listener
       if (animationFrameId.current) {
         cancelAnimationFrame(animationFrameId.current);
       }

@@ -11,7 +11,7 @@ export default function App() {
     <div>
       {/* Landing Section */}
       <Starfield>
-        <SectionWrapper className="bg-gradient-to-b from-gray-950 to-gray-900">
+        <SectionWrapper className="bg-gradient-to-b from-gray-950 to-indigo-950">
           <img src="kittyfx.png" alt="site logo" className="z-10" width={450} height={450} draggable="false"/>
           <Header 
             startColor="from-emerald-500" 
@@ -28,7 +28,7 @@ export default function App() {
       <div id="content"/>
 
       {/* Projects Section */}
-      <SectionWrapper className="bg-gradient-to-b from-gray-900 to-blue-500">
+      <SectionWrapper className="bg-gradient-to-b from-indigo-950 to-indigo-800">
         <div>
           <Header
             startColor="from-amber-400"
@@ -43,7 +43,16 @@ export default function App() {
       </SectionWrapper>
 
       {/* Landing Section */}
-      <SectionWrapper className="bg-gradient-to-b from-gray-950 to-gray-900">
+      <SectionWrapper className="bg-gradient-to-b from-indigo-800 to-sky-700">
+        <Header 
+          startColor="from-amber-400"
+          endColor="to-fuchsia-600"
+          title="Nathan Schmitt" 
+          description="Hi there! I'm a full-stack software developer, passionate about bringing ideas to life through technology. This is my journey."/>
+      </SectionWrapper>
+
+      {/* Landing Section */}
+      <SectionWrapper className="bg-gradient-to-b from-sky-700 to-sky-500">
         <Header 
           startColor="from-emerald-500" 
           endColor="to-sky-600" 
@@ -52,14 +61,22 @@ export default function App() {
       </SectionWrapper>
 
       {/* Landing Section */}
-      <SectionWrapper className="bg-gradient-to-b from-gray-950 to-gray-900">
+      <SectionWrapper className="bg-gradient-to-b from-sky-500 to-sky-300">
+        <Header 
+          startColor="from-amber-400"
+          endColor="to-fuchsia-600"
+          title="Nathan Schmitt" 
+          description="Hi there! I'm a full-stack software developer, passionate about bringing ideas to life through technology. This is my journey."/>
+      </SectionWrapper>
+
+      <SectionWrapper className="bg-green-600">
         <Header 
           startColor="from-emerald-500" 
           endColor="to-sky-600" 
           title="Nathan Schmitt" 
           description="Hi there! I'm a full-stack software developer, passionate about bringing ideas to life through technology. This is my journey."/>
+      
       </SectionWrapper>
-
       {/* Render the dynamic gradient Blob that follows the cursor */}
       <Blob />
     </div>
