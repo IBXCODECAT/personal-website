@@ -127,9 +127,7 @@ const Starfield: FC<StarfieldProps> = ({ children }) => {
       ></canvas>
 
       {/* Children elements rendered on top of the starfield (z-10). */}
-      <div className="relative z-10 w-full h-full flex items-center justify-center p-4">
-        {children}
-      </div>
+      {children}
     </div>
   );
 };

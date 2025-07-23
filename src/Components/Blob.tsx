@@ -117,6 +117,7 @@ const Blob = () => {
         style={{
         backgroundImage: `linear-gradient(${fromColor}, ${toColor})`,}}
         className="
+          invisible lg:visible
           -translate-x-1/2 -translate-y-1/2 // Center the blob on the cursor
           w-48 h-48
           //bg-gradient-to-tr from-emerald-400 to-sky-600
