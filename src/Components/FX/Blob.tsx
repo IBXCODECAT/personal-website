@@ -60,6 +60,7 @@ const Blob = () => {
   // State for the blob's on-screen position (clientX/Y) and document position (pageY)
   const [position, setPosition] = useState({ clientX: 0, clientY: 0, pageY: 0 });
   const [documentHeight, setDocumentHeight] = useState(0);
+  const [isInside, setIsInside] = useState(false); // New state to track if the mouse is inside the window
 
   useEffect(() => {
     // Set the initial document height
@@ -80,27 +81,68 @@ const Blob = () => {
       setPosition(prev => ({ ...prev, pageY: newPageY }));
     };
 
-    // We also listen for resize to update the total document height
     const handleResize = () => {
       setDocumentHeight(document.documentElement.scrollHeight);
-    }
+      // Re-check mouse position against the new window dimensions
+      if (
+        position.clientX > 0 &&
+        position.clientX < window.innerWidth &&
+        position.clientY > 0 &&
+        position.clientY < window.innerHeight
+      ) {
+        setIsInside(true);
+      } else {
+        setIsInside(false);
+      }
+    };
+    
+    const handleMouseEnter = (event: MouseEvent) => {
+      // Check if the event target is the document element to prevent false positives
+      if (event.target === document.documentElement) {
+        setIsInside(true);
+      }
+    };
+
+    const handleMouseLeave = (event: MouseEvent) => {
+      // Check if the event target is the document element to prevent false negatives
+      if (event.target === document.documentElement) {
+        setIsInside(false);
+      }
+    };
+
+    // Check if the mouse is inside the window on initial load
+    if (
+        position.clientX > 0 &&
+        position.clientX < window.innerWidth &&
+        position.clientY > 0 &&
+        position.clientY < window.innerHeight
+      ) {
+        setIsInside(true);
+      }
 
     window.addEventListener("mousemove", handleMouseMove);
     window.addEventListener("scroll", handleScroll, { passive: true });
     window.addEventListener("resize", handleResize);
+    document.documentElement.addEventListener("mouseenter", handleMouseEnter); 
+    document.documentElement.addEventListener("mouseleave", handleMouseLeave);
 
     return () => {
       window.removeEventListener("mousemove", handleMouseMove);
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("resize", handleResize);
+      document.documentElement.removeEventListener("mouseenter", handleMouseEnter);
+      document.documentElement.removeEventListener("mouseleave", handleMouseLeave);
     };
-  }, [position.clientY]); // Re-add listeners if clientY changes (though this dependency is minor)
+  }, [position.clientY, position.clientX]); 
 
   // Calculate the overall progress of the cursor down the page.
   const progress = documentHeight > 0 ? position.pageY / documentHeight : 0;
 
   // Get the interpolated colors for the current progress.
   const { fromColor, toColor } = getInterpolatedGradient(progress);
+  
+  // Set the opacity based on the new `isInside` state
+  const opacity = isInside ? 0.75 : 0;
 
   return (
     <div
@@ -115,14 +157,17 @@ const Blob = () => {
     >
       <div
         style={{
-        backgroundImage: `linear-gradient(${fromColor}, ${toColor})`,}}
+        backgroundImage: `linear-gradient(${fromColor}, ${toColor})`,
+        opacity: opacity, // Apply the new opacity
+        transition: "opacity 0.5s ease-in-out", // Add a transition for the opacity
+        }}
         className="
           invisible lg:visible
           -translate-x-1/2 -translate-y-1/2 // Center the blob on the cursor
           w-48 h-48
           //bg-gradient-to-tr from-emerald-400 to-sky-600
           rounded-full
-          opacity-75
+          //opacity-75
           blur-2xl
           animate-spin-slow // Apply the custom spinning animation
         "
