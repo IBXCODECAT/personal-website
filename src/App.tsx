@@ -81,22 +81,24 @@ export default function App() {
         </SectionWrapper>
       </CloudAnimation>
 
-      <SectionFooter className="bg-green-600">
-        <a href="https://localhost:3000">LINK0 - </a>
-        <a href="https://localhost:3000">LINK1 - </a>
-        <a href="https://localhost:3000">LINK2 - </a>
-        <a href="https://localhost:3000">LINK3</a>
-
-
-        <SocialIcon type="github" className="text-white size-8"/>
-        <SocialIcon type="instagram" className="text-white size-8"/>
-        <SocialIcon type="linkedin" className="text-white size-8"/>
-        <SocialIcon type="twitter" className="text-white size-8"/>
-        <SocialIcon type="youtube" className="text-white size-8"/>
-        
-      </SectionFooter>
       {/* Render the dynamic gradient Blob that follows the cursor */}
       <Blob />
+      
+      <SectionFooter className="bg-green-600">
+
+        <div className="flex flex-col justify-between h-full">
+          <a href="https://localhost:3000">LINK0 - </a>
+          <div className="flex flex-row justify-center gap-4">
+            <SocialIcon type="github" className="text-white size-10"/>
+            <SocialIcon type="instagram" className="text-white size-10"/>
+            <SocialIcon type="linkedin" href="https://www.linkedin.com/in/ibx-nathan/." className="text-white size-10"/>
+            <SocialIcon type="twitter" href="https://x.com/ibxcodecat" className="text-white size-10"/>
+            <SocialIcon type="youtube" className="text-white size-8"/>
+          </div>
+        </div>
+        
+      </SectionFooter>
+
     </div>
   );
 }
