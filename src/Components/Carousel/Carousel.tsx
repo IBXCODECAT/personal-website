@@ -2,8 +2,6 @@ import React, { FC, ReactNode, useState } from "react";
 import I_ChevronLeft from "../../Icons/ChevronLeft";
 import I_ChevronRight from "../../Icons/ChevronRight";
 
-
-const CARDS = 10;
 const MAX_VISIBILITY = 3;
 
 interface CarouselProps {
@@ -11,18 +9,17 @@ interface CarouselProps {
 }
 
 const Carousel: FC<CarouselProps> = ({ children }) => {
-  const [active, setActive] = useState(2);
+  const [active, setActive] = useState(1);
   const count = React.Children.count(children);
 
   return (
     <div className="carousel relative z-10 w-3/5 h-4/5">
       {active > 0 && (
         <button
-          className="nav left-0 absolute z-20 text-white transition-all duration-300 ease-out"
+          className="left-0 text-white"
           onClick={() => setActive(i => i - 1)}
-          style={{ transform: 'translateX(-100%) translateY(-50%)' }}
-        >
-          <I_ChevronLeft />
+          style={{ transform: 'translateX(-100%) translateY(-50%)' }}>
+        <I_ChevronLeft />
         </button>
       )}
       {React.Children.map(children, (child, i) => (
@@ -43,10 +40,10 @@ const Carousel: FC<CarouselProps> = ({ children }) => {
       ))}
       {active < count - 1 && (
         <button
-          className="nav right-0 absolute z-20 text-white transition-all duration-300 ease-out"
+          className="right-0 text-white"
           onClick={() => setActive(i => i + 1)}
-          style={{ transform: 'translateX(100%) translateY(-50%)' }}
-        >
+          style={{ transform: 'translateX(100%) translateY(-50%)' }}>
+        
           <I_ChevronRight />
         </button>
       )}

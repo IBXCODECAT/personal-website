@@ -1,5 +1,4 @@
-import Blob from "./Components/Blob";
-import Card from "./Components/Card";
+import Blob from "./Components/FX/Blob";
 import CloudAnimation from "./Components/FX/Clouds";
 import Header from "./Components/Header";
 import ScrollPrompt from "./Icons/ScrollPrompt";
@@ -9,6 +8,7 @@ import StarfieldAnimation from "./Components/FX/Starfield";
 
 import Carousel from './Components/Carousel/Carousel'
 import CarouselCard from "./Components/Carousel/CarouselCard";
+import SectionFooter from "./Components/SectionFooter";
 
 // Main App Component - This is where we render the Blob and the page content
 export default function App() {
@@ -22,7 +22,7 @@ export default function App() {
             startColor="from-emerald-500" 
             endColor="to-sky-600" 
             title="Nathan Schmitt" 
-            description="Hi there! I'm a full-stack software developer, passionate about bringing ideas to life through technology. This is my journey."/>
+            description="Software developer and ariel photographer, passionate about bringing ideas to life through advanced technology."/>
         </SectionWrapper>
       </StarfieldAnimation>
 
@@ -35,9 +35,9 @@ export default function App() {
       {/* Projects Section */}
       <SectionWrapper className="bg-gradient-to-b from-indigo-950 to-sky-700">
         <Carousel>
-          <CarouselCard title="Aviation Weather App" content="Aviation Weather"/>
-          <CarouselCard title="test" content="test"/>
-          <CarouselCard title="test" content="test"/>
+          <CarouselCard title="PROJECT 1" content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."/>
+          <CarouselCard title="PROJECT 2" content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."/>
+          <CarouselCard title="Aviation Weather App" content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."/>
         </Carousel>
        
       </SectionWrapper>
@@ -62,14 +62,13 @@ export default function App() {
         </SectionWrapper>
       </CloudAnimation>
 
-      <SectionWrapper className="bg-green-600">
-        <Header 
-          startColor="from-emerald-500" 
-          endColor="to-sky-600" 
-          title="Contact Me" 
-          description="Hi there! I'm a full-stack software developer, passionate about bringing ideas to life through technology. This is my journey."/>
-      
-      </SectionWrapper>
+      <SectionFooter className="bg-green-600">
+        <a href="https://localhost:3000">LINK0 - </a>
+        <a href="https://localhost:3000">LINK1 - </a>
+        <a href="https://localhost:3000">LINK2 - </a>
+        <a href="https://localhost:3000">LINK3</a>
+        
+      </SectionFooter>
       {/* Render the dynamic gradient Blob that follows the cursor */}
       <Blob />
     </div>

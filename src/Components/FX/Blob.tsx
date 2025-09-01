@@ -20,9 +20,9 @@ const interpolateColor = (color1: number[], color2: number[], factor: number): s
 // Define the color stops for our gradient sections. Each stop has a position (0 to 1) and 'from'/'to' colors.
 const colorStops = [
     { stop: 0.0, from: [52, 211, 153], to: [2, 132, 199] },     // Emerald Sky Start
-    { stop: 0.25, from: [52, 211, 153], to: [2, 132, 199] },    // Emerald Sky End
+    { stop: 0.33, from: [52, 211, 153], to: [2, 132, 199] },    // Emerald Sky End
 
-    { stop: 0.33, from: [251, 189, 35], to: [217, 70, 239] },    // Magenta Sky Start
+    { stop: 0.5, from: [251, 189, 35], to: [217, 70, 239] },    // Magenta Sky Start
     { stop: 1.0, from: [251, 189, 35], to: [217, 70, 239] },     // Magenta Sky End
     
     //{ stop: 0.55, from: [251, 189, 35], to: [220, 38, 38] },    // Amber Sky Start
