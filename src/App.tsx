@@ -2,9 +2,13 @@ import Blob from "./Components/Blob";
 import Card from "./Components/Card";
 import CloudAnimation from "./Components/FX/Clouds";
 import Header from "./Components/Header";
-import ScrollPrompt from "./Components/ScrollPrompt";
+import ScrollPrompt from "./Icons/ScrollPrompt";
 import SectionWrapper from "./Components/SectionWrapper";
 import StarfieldAnimation from "./Components/FX/Starfield";
+
+
+import Carousel from './Components/Carousel/Carousel'
+import CarouselCard from "./Components/Carousel/CarouselCard";
 
 // Main App Component - This is where we render the Blob and the page content
 export default function App() {
@@ -30,17 +34,13 @@ export default function App() {
       
       {/* Projects Section */}
       <SectionWrapper className="bg-gradient-to-b from-indigo-950 to-sky-700">
-        <div>
-          <Header
-            startColor="from-amber-400"
-            endColor="to-fuchsia-600"
-            title="Software Developer "
-            description="Here, you'll find a collection of projects and experiences that mark my journey as a full-stack software developer. Each card below represents a unique challenge, a new skill learned, and a story."/>
-          <Card/>
-          <Card/>
-          
-          <Card/>
-        </div>
+        <Carousel>
+          <CarouselCard content="test" title="test"/>
+
+          <CarouselCard content="test" title="test"/>
+          <CarouselCard content="test" title="test"/>
+        </Carousel>
+       
       </SectionWrapper>
 
       {/* Landing Section */}
