@@ -7,11 +7,30 @@ import StarfieldAnimation from "./Components/FX/Starfield";
 
 
 import Carousel from './Components/Carousel/Carousel'
-import CarouselCard from "./Components/Carousel/CarouselCard";
+import CarouselCard from "./Components/Carousel/CarouselSlide";
 import SectionFooter from "./Components/SectionFooter";
 
 // Main App Component - This is where we render the Blob and the page content
 export default function App() {
+
+  const images = [
+    'https://placehold.co/1200x600/FF5733/FFFFFF?text=Slide+1',
+    'https://placehold.co/1200x600/33FF57/FFFFFF?text=Slide+2',
+    'https://placehold.co/1200x600/3357FF/FFFFFF?text=Slide+3',
+    'https://placehold.co/1200x600/FF33A1/FFFFFF?text=Slide+4',
+    'https://placehold.co/1200x600/A133FF/FFFFFF?text=Slide+5',
+    'https://placehold.co/1200x600/FF5733/FFFFFF?text=Slide+6',
+    'https://placehold.co/1200x600/33FF57/FFFFFF?text=Slide+7',
+    'https://placehold.co/1200x600/3357FF/FFFFFF?text=Slide+8',
+    'https://placehold.co/1200x600/FF33A1/FFFFFF?text=Slide+9',
+    'https://placehold.co/1200x600/A133FF/FFFFFF?text=Slide+10',
+    'https://placehold.co/1200x600/FF5733/FFFFFF?text=Slide+11',
+    'https://placehold.co/1200x600/33FF57/FFFFFF?text=Slide+12',
+    'https://placehold.co/1200x600/3357FF/FFFFFF?text=Slide+13',
+    'https://placehold.co/1200x600/FF33A1/FFFFFF?text=Slide+14',
+    'https://placehold.co/1200x600/A133FF/FFFFFF?text=Slide+15',
+  ];
+
   return (
     <div>
       {/* Landing Section */}
@@ -34,11 +53,10 @@ export default function App() {
       
       {/* Projects Section */}
       <SectionWrapper className="bg-gradient-to-b from-indigo-950 to-sky-700">
-        <Carousel>
-          <CarouselCard title="PROJECT 1" content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."/>
-          <CarouselCard title="PROJECT 2" content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."/>
-          <CarouselCard title="Aviation Weather App" content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."/>
-        </Carousel>
+        
+        
+
+        <Carousel slides={images}/>
        
       </SectionWrapper>
 
