@@ -9,6 +9,7 @@ import StarfieldAnimation from "./Components/FX/Starfield";
 import Carousel from './Components/Carousel/Carousel'
 import CarouselCard from "./Components/Carousel/CarouselSlide";
 import SectionFooter from "./Components/SectionFooter";
+import SocialIcon from "./Icons/SocialIcon";
 
 // Main App Component - This is where we render the Blob and the page content
 export default function App() {
@@ -85,6 +86,13 @@ export default function App() {
         <a href="https://localhost:3000">LINK1 - </a>
         <a href="https://localhost:3000">LINK2 - </a>
         <a href="https://localhost:3000">LINK3</a>
+
+
+        <SocialIcon type="github" className="text-white size-8"/>
+        <SocialIcon type="instagram" className="text-white size-8"/>
+        <SocialIcon type="linkedin" className="text-white size-8"/>
+        <SocialIcon type="twitter" className="text-white size-8"/>
+        <SocialIcon type="youtube" className="text-white size-8"/>
         
       </SectionFooter>
       {/* Render the dynamic gradient Blob that follows the cursor */}
