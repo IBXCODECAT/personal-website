@@ -35,10 +35,9 @@ export default function App() {
       {/* Projects Section */}
       <SectionWrapper className="bg-gradient-to-b from-indigo-950 to-sky-700">
         <Carousel>
-          <CarouselCard content="test" title="test"/>
-
-          <CarouselCard content="test" title="test"/>
-          <CarouselCard content="test" title="test"/>
+          <CarouselCard title="Aviation Weather App" content="Aviation Weather"/>
+          <CarouselCard title="test" content="test"/>
+          <CarouselCard title="test" content="test"/>
         </Carousel>
        
       </SectionWrapper>

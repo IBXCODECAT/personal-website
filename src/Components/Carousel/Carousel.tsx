@@ -15,7 +15,7 @@ const Carousel: FC<CarouselProps> = ({ children }) => {
   const count = React.Children.count(children);
 
   return (
-    <div className="carousel relative w-96 h-96 perspective-[500px]">
+    <div className="carousel relative z-10 w-3/5 h-4/5">
       {active > 0 && (
         <button
           className="nav left-0 absolute z-20 text-white transition-all duration-300 ease-out"
