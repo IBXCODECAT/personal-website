@@ -1,11 +1,10 @@
 import React from 'react';
-import { FaTwitter, FaYoutube, FaGithub, FaLinkedin } from 'react-icons/fa';
-import { AiFillInstagram } from 'react-icons/ai';
+import { FaGithub, FaLinkedin, FaEnvelope, FaTwitter, FaYoutube } from 'react-icons/fa';
 import { IconType } from 'react-icons';
 
 // 1. Modify the interface to accept href, target, and rel props
 interface SocialIconProps extends React.SVGProps<SVGSVGElement> {
-  type: 'twitter' | 'youtube' | 'github' | 'linkedin' | 'instagram';
+  type: 'email' | 'github' | 'linkedin' | 'twitter' | 'youtube';
   href?: string;
   target?: string;
   rel?: string;
@@ -21,11 +20,8 @@ const SocialIcon: React.FC<SocialIconProps> = ({
   let IconComponent: IconType | undefined;
 
   switch (type) {
-    case 'twitter':
-      IconComponent = FaTwitter;
-      break;
-    case 'youtube':
-      IconComponent = FaYoutube;
+    case 'email':
+      IconComponent = FaEnvelope;
       break;
     case 'github':
       IconComponent = FaGithub;
@@ -33,9 +29,12 @@ const SocialIcon: React.FC<SocialIconProps> = ({
     case 'linkedin':
       IconComponent = FaLinkedin;
       break;
-    case 'instagram':
-      IconComponent = AiFillInstagram;
+    case 'twitter':
+      IconComponent = FaTwitter;
       break;
+    case 'youtube':
+      break;
+      IconComponent = FaYoutube;
   }
 
   if (!IconComponent) {

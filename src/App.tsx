@@ -7,9 +7,7 @@ import StarfieldAnimation from "./Components/FX/Starfield";
 
 
 import Carousel from './Components/Carousel/Carousel'
-import CarouselCard from "./Components/Carousel/CarouselSlide";
-import SectionFooter from "./Components/SectionFooter";
-import SocialIcon from "./Icons/SocialIcon";
+import Footer from "./Components/Footer";
 
 // Main App Component - This is where we render the Blob and the page content
 export default function App() {
@@ -55,8 +53,6 @@ export default function App() {
       {/* Projects Section */}
       <SectionWrapper className="bg-gradient-to-b from-indigo-950 to-sky-700">
         
-        
-
         <Carousel slides={images}/>
        
       </SectionWrapper>
@@ -84,20 +80,7 @@ export default function App() {
       {/* Render the dynamic gradient Blob that follows the cursor */}
       <Blob />
       
-      <SectionFooter className="bg-green-600">
-
-        <div className="flex flex-col justify-between h-full">
-          <a href="https://localhost:3000">LINK0 - </a>
-          <div className="flex flex-row justify-center gap-4">
-            <SocialIcon type="github" className="text-white size-10"/>
-            <SocialIcon type="instagram" className="text-white size-10"/>
-            <SocialIcon type="linkedin" href="https://www.linkedin.com/in/ibx-nathan/." className="text-white size-10"/>
-            <SocialIcon type="twitter" href="https://x.com/ibxcodecat" className="text-white size-10"/>
-            <SocialIcon type="youtube" className="text-white size-8"/>
-          </div>
-        </div>
-        
-      </SectionFooter>
+      <Footer/>
 
     </div>
   );
