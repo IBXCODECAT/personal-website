@@ -1,8 +1,8 @@
 import { FC, useState } from "react";
-import CarouselSlide from "./CarouselSlide";
+import CarouselSlide, { CarouselSlideProps } from "./CarouselSlide";
 
 interface CarouselProps {
-  slides: string[];
+  slides: CarouselSlideProps[];
 }
 
 // The main Carousel component that manages state and navigation logic.
@@ -22,15 +22,15 @@ const Carousel: FC<CarouselProps> = ({ slides }) => {
   };
 
   return (
-    <div className="z-10 relative w-full max-w-4xl mx-auto rounded-lg shadow-2xl overflow-hidden group">
+    <div className="relative w-full max-w-4xl mx-auto rounded-lg shadow-2xl overflow-hidden group">
       
       {/* Container for the carousel slides */}
       <div 
         className="flex transition-transform duration-500 ease-in-out"
         style={{ transform: `translateX(-${currentImageIndex * 100}%)` }}
       >
-        {slides.map((image, index) => (
-          <CarouselSlide key={index} image={image} />
+        {slides.map((slide, index) => (
+          <CarouselSlide key={index} title={slide.title} description={slide.description} href={slide.href} imageUri={slide.imageUri} />
         ))}
       </div>
 
@@ -60,8 +60,8 @@ const Carousel: FC<CarouselProps> = ({ slides }) => {
           <button
             key={index}
             onClick={() => setCurrentImageIndex(index)}
-            className={`w-3 h-3 rounded-full transition-colors duration-300 focus:outline-none ${
-              currentImageIndex === index ? 'bg-white' : 'bg-gray-500 hover:bg-gray-400'
+            className={`w-3 h-3 mb-3 rounded-full transition-colors duration-300 focus:outline-none ${
+              currentImageIndex === index ? 'bg-gray-100' : 'bg-gray-500 hover:bg-gray-400'
             }`}
           ></button>
         ))}
