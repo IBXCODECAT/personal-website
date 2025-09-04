@@ -22,7 +22,7 @@ const Carousel: FC<CarouselProps> = ({ slides }) => {
   };
 
   return (
-    <div className="relative w-full max-w-4xl mx-auto rounded-lg shadow-2xl overflow-hidden group">
+    <div className="z-10 bg-slate-700 relative w-2/3 mx-auto rounded-lg shadow-2xl overflow-hidden group">
       
       {/* Container for the carousel slides */}
       <div 
@@ -30,7 +30,7 @@ const Carousel: FC<CarouselProps> = ({ slides }) => {
         style={{ transform: `translateX(-${currentImageIndex * 100}%)` }}
       >
         {slides.map((slide, index) => (
-          <CarouselSlide key={index} title={slide.title} description={slide.description} href={slide.href} imageUri={slide.imageUri} />
+          <CarouselSlide key={index} title={slide.title} description={slide.description} CTA={slide.CTA} href={slide.href} imageUri={slide.imageUri} />
         ))}
       </div>
 

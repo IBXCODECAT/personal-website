@@ -1,7 +1,7 @@
 import { FC, ReactNode } from "react";
 
 interface SectionProps {
-    children: ReactNode;
+    children?: ReactNode;
     className: string;
 }
 
