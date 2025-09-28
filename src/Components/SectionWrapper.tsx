@@ -7,11 +7,11 @@ interface SectionProps {
 
 const SectionWrapper: FC<SectionProps> = ({children, className}) => {
     return (
-        <section className={"min-h-screen " + className}>
-            <div className="w-full h-screen flex items-center justify-center">
+        <div className={"min-h-screen " + className}>
+            <section className="w-full h-screen flex items-center justify-center">
                 {children}
-            </div>
-        </section>
+            </section>
+        </div>
     );
 }
 

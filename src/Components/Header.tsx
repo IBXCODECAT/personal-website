@@ -1,7 +1,7 @@
 import { FC } from "react";
 
 interface HeaderProps {
-    description: string;
+    description?: string;
     startColor: string;
     title: string;
     endColor: string;
