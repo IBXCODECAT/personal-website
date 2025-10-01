@@ -11,31 +11,25 @@ import { CarouselSlideProps } from "./Components/Carousel/CarouselSlide";
 
 // Main App Component - This is where we render the Blob and the page content
 export default function App() {
-
+  
   const projectSlides: CarouselSlideProps[] = [
     {
       title: "Aviation Weather App",
       description: "Operating a drone safely requires a keen awareness of weather conditions, as regulations and manufacturer guidelines often place strict operational requirements on flights. Drones are particularly susceptible to wind, precipitation, and low visibility, which can compromise stability and navigation.\n\nThis project was born out of the need for a more accessible solution to a problem many drone pilots face: deciphering complex meteorological data. ----- While sources like METAR and TAF (Aviation Routine Weather Report and Terminal Aerodrome Forecast) provide crucial information, their coded format is often difficult to interpret quickly in the field. ---- The Drone Weather App solves this problem by providing a user-friendly mobile interface that decodes METAR and TAF data into a clear, actionable format. Pilots can now get instant, on-the-go access to the weather information they need to make informed decisions and ensure safe, compliant drone operations.",
       href: "",
       CTA: "Download APK",
-      imageAlt: "Placeholder Image 600x400",
-      imageUri: "https://placehold.co/600x400/EEE/31343C"
     },
     {
       title: "Hide & Seek Video Game",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
       href: "",
       CTA: "Call to Action",
-      imageAlt: "Placeholder Image 600x400",
-      imageUri: "https://placehold.co/600x400/EEE/31343C"
     },
     {
       title: "Robotics Telemetry",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
       href: "https://github.com/SaberRobotics2506/Saber-Metrics",
       CTA: "View Source Code",
-      imageAlt: "Placeholder Image 600x400",
-      imageUri: "https://placehold.co/600x400/EEE/31343C"
     }
   ];
 
@@ -91,7 +85,6 @@ export default function App() {
 
       {/* Render the dynamic gradient Blob that follows the cursor */}
       <Blob />
-      
       <Footer/>
 
     </div>

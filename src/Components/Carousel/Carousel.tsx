@@ -30,7 +30,7 @@ const Carousel: FC<CarouselProps> = ({ slides }) => {
         style={{ transform: `translateX(-${currentImageIndex * 100}%)` }}
       >
         {slides.map((slide, index) => (
-          <CarouselSlide key={index} title={slide.title} description={slide.description} CTA={slide.CTA} href={slide.href} imageUri={slide.imageUri} />
+          <CarouselSlide key={index} title={slide.title} description={slide.description} CTA={slide.CTA} href={slide.href} />
         ))}
       </div>
 
