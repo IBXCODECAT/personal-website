@@ -59,13 +59,14 @@ export default function App() {
       {/* Projects Section */}
       <SectionWrapper className="bg-gradient-to-b from-indigo-950 to-sky-700">
           
-          <FlexV className="h-full w-screen justify-around">
+          <FlexV className="h-full w-screen justify-start gap-24">
             <Header title="Featured Projects" startColor="from-emerald-500" endColor="to-emerald-700"/>
 
             <FlexH className="justify-center gap-20">
-              <Card/>
-              <Card/>
-              <Card/>
+              <Card title="Title" subtitle="Subtitle"/>
+              <Card title="Title" subtitle="Subtitle"/>
+              <Card title="Title" subtitle="Subtitle"/>
+              <Card title="Title" subtitle="Subtitle"/>
             </FlexH>
           </FlexV>
       </SectionWrapper>
