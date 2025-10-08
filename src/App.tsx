@@ -8,8 +8,9 @@ import StarfieldAnimation from "./Components/FX/Starfield";
 import Carousel from './Components/Carousel/Carousel'
 import Footer from "./Components/Footer";
 import { CarouselSlideProps } from "./Components/Carousel/CarouselSlide";
-import HorizontalCardScrollContainer from "./Components/Containers/HorizontalCardScrollContainer";
-import { CardData } from "./Interfaces";
+import Card from "./Components/Elements/Card";
+import FlexV from "./Components/Containers/FlexV";
+import FlexH from "./Components/Containers/FlexH";
 
 // Main App Component - This is where we render the Blob and the page content
 export default function App() {
@@ -35,19 +36,6 @@ export default function App() {
     }
   ];
 
-  // This is the correct, well-typed data
-  const exampleData: CardData[] = [
-    { title: 'TS Card 1', description: 'This card is correctly typed.' },
-    { title: 'TS Card 2', description: 'The component expects an array of these objects.' },
-    { title: 'TS Card 3', description: 'Tailwind handles the styling, TS handles the types.' },
-    { title: 'TS Card 1', description: 'This card is correctly typed.' },
-    { title: 'TS Card 2', description: 'The component expects an array of these objects.' },
-    { title: 'TS Card 3', description: 'Tailwind handles the styling, TS handles the types.' },
-    { title: 'TS Card 1', description: 'This card is correctly typed.' },
-    { title: 'TS Card 2', description: 'The component expects an array of these objects.' },
-    { title: 'TS Card 3', description: 'Tailwind handles the styling, TS handles the types.' },
-  ];
-
   return (
     <div>
       {/* Landing Section */}
@@ -70,8 +58,16 @@ export default function App() {
       
       {/* Projects Section */}
       <SectionWrapper className="bg-gradient-to-b from-indigo-950 to-sky-700">
-        <HorizontalCardScrollContainer data={exampleData}/>
-       
+          
+          <FlexV className="h-full w-screen justify-around">
+            <Header title="Featured Projects" startColor="from-emerald-500" endColor="to-emerald-700"/>
+
+            <FlexH className="justify-center gap-20">
+              <Card/>
+              <Card/>
+              <Card/>
+            </FlexH>
+          </FlexV>
       </SectionWrapper>
 
       {/* Landing Section */}
