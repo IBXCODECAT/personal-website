@@ -24,7 +24,7 @@ const CarouselSlide: FC<CarouselSlideProps> = ({ title, description, CTA, href }
             className="pl-4 pr-8 h-96"/>
         </div>
         <div className="flex flex-row justify-center gap-12 items-center mt-8 w-full">
-          <PlayInstallButton/>
+          <PlayInstallButton url="https://play.google.com"/>
           <a 
             href={href} 
             className="

@@ -63,10 +63,10 @@ export default function App() {
             <Header title="Featured Projects" startColor="from-emerald-500" endColor="to-emerald-700"/>
 
             <FlexH className="justify-center gap-20">
-              <Card title="Title" subtitle="Subtitle"/>
-              <Card title="Title" subtitle="Subtitle"/>
-              <Card title="Title" subtitle="Subtitle"/>
-              <Card title="Title" subtitle="Subtitle"/>
+              <Card title="Title" subtitle="Subtitle" ctaMode="download"/>
+              <Card title="Title" subtitle="Subtitle" ctaMode="google_play"/>
+              <Card title="Title" subtitle="Subtitle" ctaMode="link"/>
+              <Card title="Title" subtitle="Subtitle" ctaMode="download"/>
             </FlexH>
           </FlexV>
       </SectionWrapper>

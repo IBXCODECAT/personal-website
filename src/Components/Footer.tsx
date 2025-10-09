@@ -5,10 +5,10 @@ const Footer = () => {
         <footer className="p-8 bg-green-600">
             <div className="flex flex-col justify-between h-full">
                 <div className="flex flex-row justify-center gap-4">
-                    <SocialIcon type='email' href="mailto:example@example.com" className="text-white size-10"/>
-                    <SocialIcon type="github" href="https://github.com/IBXCODECAT" className="text-white size-10"/>
-                    <SocialIcon type="linkedin" href="https://www.linkedin.com/in/ibx-nathan/." className="text-white size-10"/>
-                    <SocialIcon type="twitter" href="https://x.com/ibxcodecat" className="text-white size-10"/>
+                    <SocialIcon type='email' href="mailto:example@example.com"/>
+                    <SocialIcon type="github" href="https://github.com/IBXCODECAT"/>
+                    <SocialIcon type="linkedin" href="https://www.linkedin.com/in/ibx-nathan/."/>
+                    <SocialIcon type="twitter" href="https://x.com/ibxcodecat"/>
                 </div>
             </div>
             <strong>

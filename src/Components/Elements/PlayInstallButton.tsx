@@ -1,10 +1,21 @@
-const PlayInstallButton = () => {
+import { FC } from "react";
+
+interface PlayInstallButtonProps {
+    className?: string;
+    url: string;
+}
+
+const PlayInstallButton: FC<PlayInstallButtonProps> = ({className, url}) => {
     return (
-        <a href="https://play.google.com">
+        <div className={className}>
+            <a href={url}>
             <img 
                 src="/third_party/GooglePlayEnglish.png" 
-                alt="Download Image"/>
-        </a>
+                alt="Get it on Google Play button."
+                />
+            </a>
+        </div>
+        
     );
 }
 

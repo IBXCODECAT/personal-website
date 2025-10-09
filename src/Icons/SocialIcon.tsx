@@ -1,59 +1,58 @@
-import React from 'react';
-import { FaGithub, FaLinkedin, FaEnvelope, FaTwitter, FaYoutube } from 'react-icons/fa';
-import { IconType } from 'react-icons';
+import { FC, ReactNode } from 'react';
 
 // 1. Modify the interface to accept href, target, and rel props
-interface SocialIconProps extends React.SVGProps<SVGSVGElement> {
+interface SocialIconProps {
   type: 'email' | 'github' | 'linkedin' | 'twitter' | 'youtube';
   href?: string;
   target?: string;
   rel?: string;
 }
 
-const SocialIcon: React.FC<SocialIconProps> = ({ 
+const SocialIcon: FC<SocialIconProps> = ({
   type, 
-  href, 
+  href,
   target = "_blank", // Set a default target for external links
   rel = "noopener noreferrer", // A good practice for security with target="_blank"
-  ...rest 
 }) => {
-  let IconComponent: IconType | undefined;
+  let Icon: ReactNode;
 
   switch (type) {
     case 'email':
-      IconComponent = FaEnvelope;
+      Icon = <img src='/icons/social-mail.svg' alt='Email Logo'/>;
       break;
     case 'github':
-      IconComponent = FaGithub;
+      Icon = <img src='/icons/social-github.svg' alt='GitHub Logo'/>;
       break;
     case 'linkedin':
-      IconComponent = FaLinkedin;
+      Icon = <img src='/icons/social-linkedin.svg' alt='LinkedIn Logo'/>;
       break;
     case 'twitter':
-      IconComponent = FaTwitter;
+      Icon = <img src='/icons/social-twitter.svg' alt='Twitter Logo'/>;
       break;
     case 'youtube':
       break;
-      IconComponent = FaYoutube;
   }
 
-  if (!IconComponent) {
-    return null;
+  if (!Icon) {
+    return <div/>;
   }
 
-  const icon = <IconComponent {...rest} />;
 
   // 3. Conditionally wrap the icon in an anchor tag if href is provided
   if (href) {
     return (
       <a href={href} target={target} rel={rel}>
-        {icon}
+        {Icon}
       </a>
     );
   }
 
   // If no href is provided, just return the icon
-  return icon;
+  return (
+    <div>
+      {Icon}
+    </div>
+  );
 };
 
 export default SocialIcon;
