@@ -63,9 +63,21 @@ export default function App() {
             <Header title="Featured Projects" startColor="from-emerald-500" endColor="to-emerald-700"/>
 
             <FlexH className="justify-center gap-20">
-              <Card title="Aviation Weather" subtitle="See real-time weather data for drones." ctaMode="google_play"/>
-              <Card title="USB Guard Interface" subtitle="A user-friendly interface for USB access control." ctaMode="link"/>
-              <Card title="IBX Translator" subtitle="A translation tool for Discord." ctaMode="download"/>
+              <Card 
+                title="Aviation Weather" subtitle="Real-time weather data for drone pilots." ctaMode="google_play"
+                paragraph="Aviation Weather is an Android app that decodes cryptic METAR and TAF data into a user-friendly format for drone pilots on the go."
+                features={["Works with 500+ airports in the United States.", "Decode complex METAR and TAF strings.", "Features a clean, intuitive interface for quick access to essential weather information."]}
+                />
+              <Card 
+                title="USB Guard Interface" subtitle="A user-friendly interface for USB access control." ctaMode="link"
+                paragraph="The USB Guard Interface is a linux application for KDE plasma that provides a user-friendly interface for the USBGuard service."
+                features={["Monitor and manage authorized USB devices.", "Reject unauthorized USB devices automatically."]}
+                />
+              <Card 
+                title="IBX Translator" subtitle="A translation tool for Discord ." ctaMode="link"
+                paragraph="IBX Translator is a Discord bot that translates messages between multiple languages."
+                features={["Supports over 100 languages.", "Real-time translation with low latency.", "Easy to use and integrate into any Discord server."]}
+                />
               <Card title="Robotics Telemetry" subtitle="A telemetry system for FIRST robotics." ctaMode="download"/>
             </FlexH>
           </FlexV>
@@ -74,7 +86,7 @@ export default function App() {
       {/* Landing Section */}
       <SectionWrapper className="bg-gradient-to-b from-sky-700 to-sky-500">
         
-        <Carousel slides={projectSlides}/>
+        {/*<Carousel slides={projectSlides}/>*/}
         
       </SectionWrapper>
 
