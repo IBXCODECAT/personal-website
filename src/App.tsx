@@ -63,10 +63,10 @@ export default function App() {
             <Header title="Featured Projects" startColor="from-emerald-500" endColor="to-emerald-700"/>
 
             <FlexH className="justify-center gap-20">
-              <Card title="Title" subtitle="Subtitle" ctaMode="download"/>
-              <Card title="Title" subtitle="Subtitle" ctaMode="google_play"/>
-              <Card title="Title" subtitle="Subtitle" ctaMode="link"/>
-              <Card title="Title" subtitle="Subtitle" ctaMode="download"/>
+              <Card title="Aviation Weather" subtitle="See real-time weather data for drones." ctaMode="google_play"/>
+              <Card title="USB Guard Interface" subtitle="A user-friendly interface for USB access control." ctaMode="link"/>
+              <Card title="IBX Translator" subtitle="A translation tool for Discord." ctaMode="download"/>
+              <Card title="Robotics Telemetry" subtitle="A telemetry system for FIRST robotics." ctaMode="download"/>
             </FlexH>
           </FlexV>
       </SectionWrapper>
