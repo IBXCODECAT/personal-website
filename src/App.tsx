@@ -11,6 +11,7 @@ import { CarouselSlideProps } from "./Components/Carousel/CarouselSlide";
 import Card from "./Components/Elements/Card";
 import FlexV from "./Components/Containers/FlexV";
 import FlexH from "./Components/Containers/FlexH";
+import Table from "./Components/Containers/Table";
 
 // Main App Component - This is where we render the Blob and the page content
 export default function App() {
@@ -43,8 +44,7 @@ export default function App() {
         <SectionWrapper className="bg-gradient-to-b from-gray-950 to-indigo-950">
           <img src="/images/kittyfx.png" alt="site logo" className="z-10" width={450} height={450} draggable="false"/>
           <Header 
-            startColor="from-emerald-500" 
-            endColor="to-sky-600" 
+            className="bg-gradient-to-r from-emerald-500 to-sky-600"
             title="Nathan Schmitt" 
             description="Software developer and ariel photographer, passionate about bringing ideas to life through advanced technology."/>
         </SectionWrapper>
@@ -58,9 +58,21 @@ export default function App() {
       
       {/* Projects Section */}
       <SectionWrapper className="bg-gradient-to-b from-indigo-950 to-sky-700">
-          
           <FlexV className="h-full w-screen justify-start gap-24">
-            <Header title="Featured Projects" startColor="from-emerald-500" endColor="to-emerald-700"/>
+            <Header title="About Me" className="bg-gradient-to-r from-emerald-500 to-emerald-700"/>
+            <FlexH className="justify-center">
+              <Table/>
+            </FlexH>
+          </FlexV>
+      </SectionWrapper>
+
+      {/* Landing Section */}
+      <SectionWrapper className="bg-gradient-to-b from-sky-700 to-sky-500">
+          <FlexV className="h-full w-screen justify-start gap-24">
+            <Header 
+              title="Featured Projects" 
+              description="A selection of my most notable projects, showcasing a range of skills and technologies."
+              className="bg-gradient-to-r from-emerald-500 to-emerald-700"/>
 
             <FlexH className="justify-center gap-20">
               <Card 
@@ -81,10 +93,6 @@ export default function App() {
               <Card title="Robotics Telemetry" subtitle="A telemetry system for FIRST robotics." ctaMode="download"/>
             </FlexH>
           </FlexV>
-      </SectionWrapper>
-
-      {/* Landing Section */}
-      <SectionWrapper className="bg-gradient-to-b from-sky-700 to-sky-500">
         
         {/*<Carousel slides={projectSlides}/>*/}
         
@@ -94,8 +102,7 @@ export default function App() {
       <CloudAnimation>
         <SectionWrapper className="bg-gradient-to-b from-sky-500 to-sky-300">
           <Header 
-            startColor="from-amber-400"
-            endColor="to-fuchsia-600"
+            className="bg-gradient-to-r from-amber-400 to-fuchsia-600"
             title="Drone Services"/>
 
             <img 
