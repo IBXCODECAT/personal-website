@@ -6,7 +6,6 @@ import SectionWrapper from "./Components/SectionWrapper";
 import StarfieldAnimation from "./Components/FX/Starfield";
 
 import Footer from "./Components/Footer";
-import { CarouselSlideProps } from "./Components/Carousel/CarouselSlide";
 import Card from "./Components/Elements/Card";
 
 import FlexV from "./Components/Containers/FlexV";
@@ -93,7 +92,7 @@ export default function App() {
 
             <img 
               src='images/nathan.schmitt_drone.jpg' 
-              alt="image"
+              alt="Nathan Schmitt flying a drone"
               width={100}
               />
 
