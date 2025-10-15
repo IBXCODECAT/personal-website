@@ -12,8 +12,10 @@ const Footer = () => {
                 </div>
             </div>
             <strong>
+                {/* Link to the license file in the GitHub repository */}
                 <a 
                     href="https://github.com/IBXCODECAT/personal-website/blob/main/LICENSE"
+                    rel="noopener noreferrer" target="_blank"
                     className="flex flex-row justify-center text-gray-200 pt-8 underline">
                     Copyright &copy; 2025 - Nathan Schmitt
                 </a>

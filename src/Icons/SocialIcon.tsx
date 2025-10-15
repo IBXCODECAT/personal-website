@@ -2,17 +2,13 @@ import { FC, ReactNode } from 'react';
 
 // 1. Modify the interface to accept href, target, and rel props
 interface SocialIconProps {
-  type: 'email' | 'github' | 'linkedin' | 'twitter' | 'youtube';
-  href?: string;
-  target?: string;
-  rel?: string;
+  type: 'email' | 'github' | 'linkedin' | 'twitter';
+  href: string;
 }
 
 const SocialIcon: FC<SocialIconProps> = ({
   type, 
-  href,
-  target = "_blank", // Set a default target for external links
-  rel = "noopener noreferrer", // A good practice for security with target="_blank"
+  href
 }) => {
   let Icon: ReactNode;
 
@@ -29,29 +25,13 @@ const SocialIcon: FC<SocialIconProps> = ({
     case 'twitter':
       Icon = <img src='/icons/social-twitter.svg' alt='Twitter Logo'/>;
       break;
-    case 'youtube':
-      break;
   }
 
-  if (!Icon) {
-    return <div/>;
-  }
-
-
-  // 3. Conditionally wrap the icon in an anchor tag if href is provided
-  if (href) {
-    return (
-      <a href={href} target={target} rel={rel}>
-        {Icon}
-      </a>
-    );
-  }
-
-  // If no href is provided, just return the icon
   return (
-    <div>
+    // Noopener and noreferrer for security reasons when using target="_blank"
+    <a href={href} target="_blank" rel="noopener noreferrer">
       {Icon}
-    </div>
+    </a>
   );
 };
 
