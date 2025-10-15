@@ -36,19 +36,16 @@ export default function App() {
       
       {/* Projects Section */}
       <SectionWrapper className="bg-gradient-to-b from-indigo-950 to-sky-700">
-          <FlexV className="h-full w-screen justify-start gap-24">
-            <Header title="About Me" className="bg-gradient-to-r from-emerald-500 to-emerald-700"/>
-            <FlexH className="justify-center">
-              <Split
-                leftTitle="Software Developer"
-                rightTitle="Ariel Photographer"
-                logoLeft="icons/developer.svg"
-                logoRight="icons/drone.svg"
-                leftContent={<p>Placeholder Content</p>}
-                rightContent={<p>Placeholder Content</p>}
-              />
-            </FlexH>
-          </FlexV>
+        <FlexH className="justify-center">
+          <Split
+            leftTitle="Software Developer"
+            rightTitle="Ariel Photographer"
+            logoLeft="icons/developer.svg"
+            logoRight="icons/drone.svg"
+            leftContent={<p>Placeholder Content</p>}
+            rightContent={<p>Placeholder Content</p>}
+          />
+        </FlexH>
       </SectionWrapper>
 
       {/* Landing Section */}
