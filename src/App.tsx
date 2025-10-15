@@ -38,12 +38,36 @@ export default function App() {
       <SectionWrapper className="bg-gradient-to-b from-indigo-950 to-sky-700">
         <FlexH className="justify-center">
           <Split
+            mainTitle="My Dual Identity"
+            mainSubtitle="Some super cool and catchy subtitle can go here."
             leftTitle="Software Developer"
             rightTitle="Ariel Photographer"
             logoLeft="icons/developer.svg"
             logoRight="icons/drone.svg"
-            leftContent={<p>Placeholder Content</p>}
-            rightContent={<p>Placeholder Content</p>}
+            leftContent=
+            {
+              <div>
+                <p>I'm a full-stack developer with a passion for building clean, robust, and scalable applications that solve real-world problems. My primary goal is to translate complex ideas into intuitive, performant user experiences, and I thrive on architecting efficient systems from the ground up.</p>
+                <p className="font-bold mt-3">Key Strengths:</p>
+                <ul>
+                  <li><span className="text-green-500 mr-3">•</span>List Item 1</li>
+                  <li><span className="text-green-500 mr-3">•</span>List Item 1</li>
+                  <li><span className="text-green-500 mr-3">•</span>List Item 1</li>
+                </ul>
+              </div>
+            }
+            rightContent=
+            {
+              <div>
+                <p>My photography is about revealing the world's hidden geometry through altitude......</p>
+                <p className="font-bold mt-3">Key Strengths:</p>
+                <ul>
+                  <li><span className="text-indigo-500 mr-3">•</span>List Item 1</li>
+                  <li><span className="text-indigo-500 mr-3">•</span>List Item 1</li>
+                  <li><span className="text-indigo-500 mr-3">•</span>List Item 1</li>
+                </ul>
+              </div>
+            }
           />
         </FlexH>
       </SectionWrapper>
