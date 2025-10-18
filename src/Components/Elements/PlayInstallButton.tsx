@@ -8,7 +8,11 @@ interface PlayInstallButtonProps {
 const PlayInstallButton: FC<PlayInstallButtonProps> = ({className, url}) => {
     return (
         <div className={className}>
-            <a href={url}>
+            <a 
+                href={url}
+                target="_blank" 
+                rel="noopener noreferer"
+                >
             <img 
                 src="/third_party/GooglePlayEnglish.png" 
                 alt="Get it on Google Play button."

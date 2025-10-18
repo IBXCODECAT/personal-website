@@ -89,7 +89,8 @@ export default function App() {
               <Card 
                 title="USB Guard Interface" subtitle="A user-friendly interface for USB access control." ctaMode="link"
                 paragraph="Frustrated by constantly diving into the command line to manage USB devices, I built this simple Qt GUI to be my daily driver. It provides a visual dashboard for UsbGuard, letting me click to authorize or block peripherals instantly and finally streamlining my USB workflow."
-                features={["Languages: C/C++.", "Framework: QT/QML", "Platform: Linux with KDE Plasma." ]}
+                features={["Languages: C/C++.", "Framework: QT/QML", "Platform: Linux with KDE Plasma."]}
+                url="https://github.com/IBXCODECAT/UsbGuardGUI"
                 />
               <Card 
                 title="IBX Translator" subtitle="A translation tool for Discord ." ctaMode="link"
@@ -97,9 +98,10 @@ export default function App() {
                 features={["Languages: Typescript (TS).", "Framework: NodeJS.", "Platform: NodeJS Server."]}
                 />
               <Card
-                title="Robotics Telemetry" subtitle="A telemetry system for FIRST robotics." ctaMode="download"
+                title="Robotics Telemetry" subtitle="A telemetry system for FIRST robotics." ctaMode="link"
                 paragraph=""
                 features={["Languages: Kotlin", "Framework: Android Studio", "Platform: Android"]}
+                url="https://github.com/SaberRobotics2506/Saber-Metrics"
               />
             </FlexH>
           </FlexV>

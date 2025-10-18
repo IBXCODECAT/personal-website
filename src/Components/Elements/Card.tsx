@@ -11,10 +11,10 @@ interface CardProps {
     image?: string;
     alt?: string;
     ctaMode: 'link' | 'download' | 'google_play';
-    link?: string;
+    url?: string;
 }
 
-const Card: FC<CardProps> = ({title, subtitle, paragraph, features, image, alt, ctaMode, link}) => {
+const Card: FC<CardProps> = ({title, subtitle, paragraph, features, image, alt, ctaMode, url}) => {
     
     // Load placeholder images if none are provided
     if (image === undefined) image = "https://placehold.co/350x250";
@@ -47,7 +47,7 @@ const Card: FC<CardProps> = ({title, subtitle, paragraph, features, image, alt, 
                 <FlexH className="items-center">
                     {ctaMode === 'google_play' && <PlayInstallButton className="block m-auto w-2/3" url="https://play.google.com/"/>}
                     {ctaMode === 'download' && <div></div>}
-                    {ctaMode === 'link' && <ViewOnGitHubButton url={link || "#"}/>}
+                    {ctaMode === 'link' && <ViewOnGitHubButton url={url || "#"}/>}
                 </FlexH>
             </div>
         </div>
