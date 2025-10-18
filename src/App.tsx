@@ -84,23 +84,25 @@ export default function App() {
               <Card 
                 title="Aviation Weather" subtitle="Real-time weather data for drone pilots." ctaMode="google_play"
                 paragraph="Aviation Weather is an Android app that decodes cryptic METAR and TAF data into a user-friendly format for drone pilots on the go."
-                features={["Works with 500+ airports in the United States.", "Decode complex METAR and TAF strings.", "Features a clean, intuitive interface for quick access to essential weather information."]}
+                features={["Languages: Typescript (TSX)/CSS.", "Framework: React Native", "Platform: Android."]}
                 />
               <Card 
                 title="USB Guard Interface" subtitle="A user-friendly interface for USB access control." ctaMode="link"
-                paragraph="The USB Guard Interface is a linux application for KDE plasma that provides a user-friendly interface for the USBGuard service."
-                features={["Monitor and manage authorized USB devices.", "Reject unauthorized USB devices automatically."]}
+                paragraph="Frustrated by constantly diving into the command line to manage USB devices, I built this simple Qt GUI to be my daily driver. It provides a visual dashboard for UsbGuard, letting me click to authorize or block peripherals instantly and finally streamlining my USB workflow."
+                features={["Languages: C/C++.", "Framework: QT/QML", "Platform: Linux with KDE Plasma." ]}
                 />
               <Card 
                 title="IBX Translator" subtitle="A translation tool for Discord ." ctaMode="link"
                 paragraph="IBX Translator is a Discord bot that translates messages between multiple languages."
-                features={["Supports over 100 languages.", "Real-time translation with low latency.", "Easy to use and integrate into any Discord server."]}
+                features={["Languages: Typescript (TS).", "Framework: NodeJS.", "Platform: NodeJS Server."]}
                 />
-              <Card title="Robotics Telemetry" subtitle="A telemetry system for FIRST robotics." ctaMode="download"/>
+              <Card
+                title="Robotics Telemetry" subtitle="A telemetry system for FIRST robotics." ctaMode="download"
+                paragraph=""
+                features={["Languages: Kotlin", "Framework: Android Studio", "Platform: Android"]}
+              />
             </FlexH>
           </FlexV>
-        
-        {/*<Carousel slides={projectSlides}/>*/}
         
       </SectionWrapper>
 

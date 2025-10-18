@@ -1,6 +1,7 @@
 import { FC } from "react";
 import PlayInstallButton from "./PlayInstallButton";
 import FlexH from "../Containers/FlexH";
+import ViewOnGitHubButton from "./ViewOnGitHubButton";
 
 interface CardProps {
     title: string;
@@ -10,9 +11,10 @@ interface CardProps {
     image?: string;
     alt?: string;
     ctaMode: 'link' | 'download' | 'google_play';
+    link?: string;
 }
 
-const Card: FC<CardProps> = ({title, subtitle, paragraph, features, image, alt, ctaMode}) => {
+const Card: FC<CardProps> = ({title, subtitle, paragraph, features, image, alt, ctaMode, link}) => {
     
     // Load placeholder images if none are provided
     if (image === undefined) image = "https://placehold.co/350x250";
@@ -45,7 +47,7 @@ const Card: FC<CardProps> = ({title, subtitle, paragraph, features, image, alt, 
                 <FlexH className="items-center">
                     {ctaMode === 'google_play' && <PlayInstallButton className="block m-auto w-2/3" url="https://play.google.com/"/>}
                     {ctaMode === 'download' && <div></div>}
-                    {ctaMode === 'link' && <div></div>}
+                    {ctaMode === 'link' && <ViewOnGitHubButton url={link || "#"}/>}
                 </FlexH>
             </div>
         </div>
