@@ -11,6 +11,7 @@ import Card from "./Components/Elements/Card";
 import FlexV from "./Components/Containers/FlexV";
 import FlexH from "./Components/Containers/FlexH";
 import Split from "./Components/Containers/Split";
+import LifeGame from "./Components/FX/LifeGame";
 
 // Main App Component - This is where we render the Blob and the page content
 export default function App() {
@@ -83,7 +84,7 @@ export default function App() {
             <FlexH className="justify-center gap-20">
               <Card 
                 title="Aviation Weather" subtitle="Real-time weather data for drone pilots." ctaMode="google_play"
-                paragraph="Aviation Weather is an Android app that decodes cryptic METAR and TAF data into a user-friendly format for drone pilots on the go."
+                paragraph="Aviation Weather decodes METAR and TAF data into a user-friendly format."
                 features={["Languages: Typescript (TSX)/CSS.", "Framework: React Native", "Platform: Android."]}
                 />
               <Card 
@@ -107,8 +108,11 @@ export default function App() {
           </FlexV>
         
       </SectionWrapper>
+      <SectionWrapper className="bg-gradient-to-b from-sky-500 to-sky-300">
+        <LifeGame/>
+      </SectionWrapper>
 
-      {/* Aviation Section */}
+{/*
       <CloudAnimation>
         <SectionWrapper className="bg-gradient-to-b from-sky-500 to-sky-300">
           <Header 
@@ -124,7 +128,7 @@ export default function App() {
         </SectionWrapper>
       </CloudAnimation>
 
-      {/* Render the dynamic gradient Blob that follows the cursor */}
+*/}
       <Blob />
       <Footer/>
 

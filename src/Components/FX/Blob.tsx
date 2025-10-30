@@ -148,7 +148,7 @@ const Blob = () => {
     <div
       style={{
         // We use transform to move the blob's container.
-        transform: `translate(${position.clientX - 96}px, ${position.clientY - 96}px)`,
+        transform: `translate(${position.clientX - 32}px, ${position.clientY - 32}px)`,
         // The transition property creates the smooth trailing effect
         transition: "transform 0.1s ease-out",
 
@@ -161,10 +161,10 @@ const Blob = () => {
         opacity: opacity, // Apply the new opacity
         transition: "opacity 0.5s ease-in-out", // Add a transition for the opacity
         }}
-        className="
+        className=" 
           invisible lg:visible
           -translate-x-1/2 -translate-y-1/2 // Center the blob on the cursor
-          w-48 h-48
+          w-16 h-16
           //bg-gradient-to-tr from-emerald-400 to-sky-600
           rounded-full
           //opacity-75
