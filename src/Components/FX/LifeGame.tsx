@@ -29,6 +29,9 @@ const LifeGame = () => {
 
     const COLS = 4
     const ROWS = 8
+    const CELL_SIZE = 30;
+    const ALIVE_COLOR = "#00AA00";
+    const DEAD_COLOR = "#FF0000";
 
     const [cellStates, setCellStates] = useState<boolean[][]>(() => 
         Generate2DArray(ROWS, COLS)
@@ -39,11 +42,30 @@ const LifeGame = () => {
 
     return (
         <div className="w-screen h-screen">
-            <h2>Conway's Game of Life</h2>
-            <p>Grid initialized with **{ROWS} rows** and **{COLS} columns**.</p>
-            <p>Total live cells initially: **{liveCellsCount}**</p>
-            
-            {/* You will eventually render the grid here */}
+            <table style={{ borderSpacing: '1px', backgroundColor: '#90A4AE' }}> 
+                <tbody>
+                    {/* Map over the outer array (rows) */}
+                    {cellStates.map((row, rowIndex) => (
+                        <tr key={rowIndex}>
+                            {/* Map over the inner array (cells/columns) */}
+                            {row.map((isAlive, colIndex) => (
+                                <td
+                                    key={`${rowIndex}-${colIndex}`}
+                                    style={{
+                                        width: CELL_SIZE,
+                                        height: CELL_SIZE,
+                                        // Set the background color based on the cell's state
+                                        backgroundColor: isAlive ? ALIVE_COLOR : DEAD_COLOR,
+                                        border: '1px solid #CFD8DC'
+                                    }}
+                                >
+                                    {''}
+                                </td>
+                            ))}
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
         </div>
     );
 }
