@@ -18,7 +18,8 @@ export default function App() {
 
   return (
     <div>
-      <LifeGame/>
+      <LifeGame cellWidthPercentage={0.02} gameSpeed={100}/>
+
       {/* Landing Section */}
       <StarfieldAnimation>
         <SectionWrapper className="bg-gradient-to-b from-gray-950 to-indigo-950">
