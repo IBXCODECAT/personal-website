@@ -1,15 +1,14 @@
 import { useEffect, useState } from "react";
 
-const CELL_SIZE = 32;
-
 const LifeGame = () => {
 
     const [mousePos, setMousePos] = useState({pageX: 0, pageY: 0});
     const [mouseIsIsInside, setMouseIsInside] = useState(false);
     const [gameBoardDimensions, setGameBoardDimensions] = useState({x: 0, y: 0});
-    const [gameGridSize, setGameBoardGridSize] = useState({x: 0, y: 0});
+    const [gameGridSize, setGameGridSize] = useState({x: 0, y: 0});
 
     const [cellStates, setCellStates] = useState([[false]]);
+    const [cellSize, setCellSize] = useState({x: 0, y: 0});
 
     useEffect(() => {
         // We track the mouse position to generate our alive cells
@@ -18,7 +17,7 @@ const LifeGame = () => {
             setMousePos({
                 pageX: event.pageX,
                 pageY: event.pageY
-            }); 
+            });
         }
 
         const calculateDimensions = () => {
@@ -28,23 +27,26 @@ const LifeGame = () => {
                 y: window.innerHeight
             };
             
+            const newCellSize = {
+                x: Math.floor(newBoardDimensions.x * 0.05),
+                y: Math.floor(newBoardDimensions.y * 0.05)
+            }
+
             // Calculate NEW grid size based on NEW dimensions
-            // Use Math.floor/ceil to ensure integer indices
             const newGridSize = {
-                x: Math.floor(newBoardDimensions.x / CELL_SIZE),
-                y: Math.floor(newBoardDimensions.y / CELL_SIZE)
+                x: Math.floor(newBoardDimensions.x / newCellSize.x),
+                y: Math.floor(newBoardDimensions.y / newCellSize.y)
             };
 
-            // Update dimension and grid size state (will trigger a re-render)
-            setGameBoardDimensions(newBoardDimensions);
-            setGameBoardGridSize(newGridSize);
-            
             // Create the NEW cell states array based on NEW grid size
             let newCellStatuses: boolean[][] = Array.from({ length: newGridSize.y }, () => 
-                Array.from({ length: newGridSize.x }, () => Math.random() < 0.5)
+                Array.from({ length: newGridSize.x }, () => Math.random() < 0.9)
             );
             
             // 5. Update the cell states with the NEW array
+            setGameBoardDimensions(newBoardDimensions);
+            setGameGridSize(newGridSize);
+            setCellSize(newCellSize);
             setCellStates(newCellStatuses);
         }
 
@@ -71,21 +73,19 @@ const LifeGame = () => {
     return (
         <div className="fixed top-0 bottom-0 left-0 right-0 z-10 leading-none">
             {cellStates.map((rows, rowIndex) => (
-                <>
+                <div className="flex flex-row">
                     {rows.map((item, colIndex) => (
                         <div 
+                        style={{width: cellSize.x, height: cellSize.y}}
                         className={`
-                            inline-block
-                            h-8 w-8 z-20
-                            m-0 p-0
+                            m-0 p-0 z-20
                             border
-                            leading-loose
                             ${cellStates[rowIndex][colIndex] 
-                                ? 'border-gray-600 border-opacity-10'
+                                ? 'border-gray-600 border-opacity-5'
                                 : 'border-gray-200 border-opacity-30'}`
                         }>{cellStates[rowIndex][colIndex]}</div>
                     ))}
-                </>
+                </div>
             ))}
         </div>
     );
