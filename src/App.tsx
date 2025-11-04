@@ -18,7 +18,10 @@ export default function App() {
 
   return (
     <div>
-      <LifeGame cellWidthPercentage={0.02} gameSpeed={100}/>
+      <LifeGame 
+        cellWidthPercentage={0.02} 
+        gameSpeed={200}
+        startAliveThreshold={0.85}/>
 
       {/* Landing Section */}
       <StarfieldAnimation>
