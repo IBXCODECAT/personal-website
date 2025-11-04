@@ -118,7 +118,7 @@ const Blob = () => {
         position.clientY < window.innerHeight
       ) {
         setIsInside(true);
-      }
+    }
 
     window.addEventListener("mousemove", handleMouseMove);
     window.addEventListener("scroll", handleScroll, { passive: true });

@@ -18,6 +18,7 @@ export default function App() {
 
   return (
     <div>
+      <LifeGame/>
       {/* Landing Section */}
       <StarfieldAnimation>
         <SectionWrapper className="bg-gradient-to-b from-gray-950 to-indigo-950">
@@ -109,26 +110,9 @@ export default function App() {
         
       </SectionWrapper>
       <SectionWrapper className="bg-gradient-to-b from-sky-500 to-sky-300">
-        <LifeGame/>
+            <div></div>
       </SectionWrapper>
 
-{/*
-      <CloudAnimation>
-        <SectionWrapper className="bg-gradient-to-b from-sky-500 to-sky-300">
-          <Header 
-            className="bg-gradient-to-r from-amber-400 to-fuchsia-600"
-            title="Drone Services"/>
-
-            <img 
-              src='images/nathan.schmitt_drone.jpg' 
-              alt="Nathan Schmitt flying a drone"
-              width={100}
-              />
-
-        </SectionWrapper>
-      </CloudAnimation>
-
-*/}
       <Blob />
       <Footer/>
 
