@@ -26,10 +26,27 @@ const LifeGame = () => {
                 x: window.innerWidth,
                 y: window.innerHeight
             };
+
+            const TARGET_CELL_PERCENTAGE_X = 0.1;
+
+            // Calculate the total number of columns needed based on the target percentage
+            const targetColumns = Math.max(1, Math.floor(1 / TARGET_CELL_PERCENTAGE_X)); 
             
+            // Calculate the PERFECT cell width to tile the screen width
+            const newCellSizeX = newBoardDimensions.x / targetColumns; 
+
+            // Determine the IDEAL number of rows needed to keep the cells square
+            const totalRows = Math.max(
+                1, // Ensure totalRows is at least 1
+                Math.round(newBoardDimensions.y / newCellSizeX)
+            );
+            
+            // Calculate the PERFECT cell height to tile the screen height completely.
+            const newCellSizeY = newBoardDimensions.y / totalRows;
+                
             const newCellSize = {
-                x: Math.floor(newBoardDimensions.x * 0.05),
-                y: Math.floor(newBoardDimensions.y * 0.05)
+                x: newCellSizeX,
+                y: newCellSizeY
             }
 
             // Calculate NEW grid size based on NEW dimensions
